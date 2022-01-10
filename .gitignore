@@ -1,0 +1,8 @@
+*.gcov
+*.exe
+*.gcda
+*.gcno
+*.o
+analyse.txt
+*.out
+releases.txt
