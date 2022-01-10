@@ -18,18 +18,9 @@ using namespace std;
 #include "shell_sort.hpp"
 #include "tree_sort.hpp"
 
-#define ARR_LENGTH 1000
+#include "test.hpp"
 
-int test(int* arr, int size){
-    for(int n = 1; n < size; n++){
-        if(arr[n - 1] <= arr[n]){
-            
-        }else{
-            return n - 1;
-        }
-    }
-    return -1;
-}
+#define ARR_LENGTH 1000
 
 // Driver program to test above functions  
 int main()  
@@ -88,6 +79,28 @@ int main()
     std::cin.get();
 
     delete[] arr_bas;  
-    delete[] arr;  
+    delete[] arr;
+
+    float arr_f[10];
+    for(int n =0; n < 10; n++){
+        arr_f[n] = static_cast <float> (rand()) / static_cast <float> (RAND_MAX);
+    }
+
+    std::cout << "\nUnsorted float array:" << std::endl;
+    for(float n : arr_f){
+        std::cout << n << std::endl;
+    }
+
+    heap_sort<float>(arr_f, 10);
+
+    std::cout << "\nTested: " << test<float>(arr_f, 10) << std::endl;
+
+    std::cout << "Sorted float array:" << std::endl;
+    for(float n : arr_f){
+        std::cout << n << std::endl;
+    }
+
+    std::cin.get();
+
     return 0;  
 }
