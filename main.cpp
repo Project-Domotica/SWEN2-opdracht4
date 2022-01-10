@@ -18,7 +18,18 @@ using namespace std;
 #include "shell_sort.hpp"
 #include "tree_sort.hpp"
 
-#define ARR_LENGTH 10000
+#define ARR_LENGTH 1000
+
+int test(int* arr, int size){
+    for(int n = 1; n < size; n++){
+        if(arr[n - 1] <= arr[n]){
+            
+        }else{
+            return n - 1;
+        }
+    }
+    return -1;
+}
 
 // Driver program to test above functions  
 int main()  
@@ -66,8 +77,15 @@ int main()
     copy(arr_bas, arr_bas + n, arr);
     heap_sort<int>(arr,n);
 
+    std::cout << "Tested: " << test(arr_bas, n) << std::endl;
+
+    cout << "Unsorted array: \n"; 
+    for_each(arr_bas, arr_bas + n, [](int& v){cout << v << " ";}); 
+
     cout << "Sorted array: \n"; 
     for_each(arr, arr + n, [](int& v){cout << v << " ";}); 
+
+    std::cin.get();
 
     delete[] arr_bas;  
     delete[] arr;  
